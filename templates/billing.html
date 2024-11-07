@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Billing System - Billing</title>
+</head>
+<body>
+    <h1>Billing Calculation</h1>
+
+    <!-- Date Range Form -->
+    <form action="{{ url_for('billing') }}" method="POST">
+        <label for="from_date">From Date:</label>
+        <input type="date" id="from_date" name="from_date" required>
+
+        <label for="to_date">To Date:</label>
+        <input type="date" id="to_date" name="to_date" required>
+
+        <button type="submit">Calculate Billing</button>
+    </form>
+
+    <!-- Billing Information Display -->
+    {% if billing_info %}
+        <h2>Billing Information</h2>
+        <table>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Total Days</th>
+                <th>Total Fee</th>
+            </tr>
+            {% for info in billing_info %}
+            <tr>
+                <td>{{ info.student_id }}</td>
+                <td>{{ info.student }}</td>
+                <td>{{ info.total_days }}</td>
+                <td>{{ info.total_fee }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Billing System - Data Entry</title>
+</head>
+<body>
+    <h1>Mess Billing System</h1>
+
+    <a href="{{ url_for('billing') }}">Go to Billing Page</a>
+
+    <!-- Add New Student Form -->
+    <h2>Add New Student</h2>
+    <form action="{{ url_for('add_student') }}" method="POST">
+        <label for="student_id">Student ID:</label>
+        <input type="number" id="student_id" name="student_id" required>
+
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <button type="submit">Add Student</button>
+    </form>
+
+    <!-- Record Meal Intake Form -->
+    <h2>Record Meal Intake</h2>
+    <form action="{{ url_for('record_meal') }}" method="POST">
+        <label for="student_id">Student ID:</label>
+        <input type="number" id="student_id" name="student_id" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="meal1">Meal 1</label>
+        <input type="checkbox" id="meal1" name="meal1">
+        <label for="meal2">Meal 2</label>
+        <input type="checkbox" id="meal2" name="meal2">
+        <label for="meal3">Meal 3</label>
+        <input type="checkbox" id="meal3" name="meal3">
+        <label for="meal4">Meal 4</label>
+        <input type="checkbox" id="meal4" name="meal4">
+
+        <button type="submit">Record Meal</button>
+    </form>
+</body>
+</html>
